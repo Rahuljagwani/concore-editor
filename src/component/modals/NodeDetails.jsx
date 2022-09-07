@@ -67,25 +67,16 @@ const NodeDetails = ({
 
                 {labelAllowed ? <div> Label</div> : ''}
                 {labelAllowed ? (
-                    <>
-                        <input
-                            className="nodeLabel"
-                            ref={inputRef}
-                            type="text"
-                            required
-                            label="Node Label"
-                            value={data.label}
-                            placeholder="Enter Node Label"
-                            onChange={(e) => setData({ ...data, label: e.target.value })}
-                            list="files"
-                        />
-                        <datalist id="files">
-                            {
-                                // eslint-disable-next-line max-len
-                                JSON.parse(window.localStorage.getItem('fileList')).files.map((item, index) => <option label="File Dropdown" value={`:${item.key.toString()}`} />)
-                            }
-                        </datalist>
-                    </>
+                    <input
+                        className="nodeLabel"
+                        ref={inputRef}
+                        type="text"
+                        required
+                        label="Node Label"
+                        value={data.label}
+                        placeholder="Enter Node Label"
+                        onChange={(e) => setData({ ...data, label: e.target.value })}
+                    />
                 ) : ''}
                 <div> Width</div>
                 <input

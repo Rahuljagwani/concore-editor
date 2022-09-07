@@ -158,10 +158,6 @@ const reducer = (state, action) => {
         return { ...state, newGraphModal: action.payload };
     }
 
-    case T.EDIT_TEXTFILE: {
-        return { ...state, textFileModal: action.payload.show, fileObj: action.payload.fileObj };
-    }
-
     default:
         return state;
     }

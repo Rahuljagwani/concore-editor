@@ -49,8 +49,7 @@
                 "ignoreRestSiblings": false
             }
         ],
-        "react/prop-types": "off",
-        "linebreak-style": ["error", "windows"]
+        "react/prop-types": "off"
     },
     "overrides": [
         {
