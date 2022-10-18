@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/concore-editor/static/css/main.e7d703f2.chunk.css",
-    "main.js": "/concore-editor/static/js/main.2b634a96.chunk.js",
-    "main.js.map": "/concore-editor/static/js/main.2b634a96.chunk.js.map",
+    "main.js": "/concore-editor/static/js/main.56ebf1ab.chunk.js",
+    "main.js.map": "/concore-editor/static/js/main.56ebf1ab.chunk.js.map",
     "runtime-main.js": "/concore-editor/static/js/runtime-main.2569677e.js",
     "runtime-main.js.map": "/concore-editor/static/js/runtime-main.2569677e.js.map",
     "static/css/2.8d7c1813.chunk.css": "/concore-editor/static/css/2.8d7c1813.chunk.css",
-    "static/js/2.c40e1787.chunk.js": "/concore-editor/static/js/2.c40e1787.chunk.js",
-    "static/js/2.c40e1787.chunk.js.map": "/concore-editor/static/js/2.c40e1787.chunk.js.map",
+    "static/js/2.891a61b1.chunk.js": "/concore-editor/static/js/2.891a61b1.chunk.js",
+    "static/js/2.891a61b1.chunk.js.map": "/concore-editor/static/js/2.891a61b1.chunk.js.map",
     "static/js/3.42571909.chunk.js": "/concore-editor/static/js/3.42571909.chunk.js",
     "static/js/3.42571909.chunk.js.map": "/concore-editor/static/js/3.42571909.chunk.js.map",
     "index.html": "/concore-editor/index.html",
@@ -15,13 +15,13 @@
     "service-worker.js.map": "/concore-editor/service-worker.js.map",
     "static/css/2.8d7c1813.chunk.css.map": "/concore-editor/static/css/2.8d7c1813.chunk.css.map",
     "static/css/main.e7d703f2.chunk.css.map": "/concore-editor/static/css/main.e7d703f2.chunk.css.map",
-    "static/js/2.c40e1787.chunk.js.LICENSE.txt": "/concore-editor/static/js/2.c40e1787.chunk.js.LICENSE.txt"
+    "static/js/2.891a61b1.chunk.js.LICENSE.txt": "/concore-editor/static/js/2.891a61b1.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.2569677e.js",
     "static/css/2.8d7c1813.chunk.css",
-    "static/js/2.c40e1787.chunk.js",
+    "static/js/2.891a61b1.chunk.js",
     "static/css/main.e7d703f2.chunk.css",
-    "static/js/main.2b634a96.chunk.js"
+    "static/js/main.56ebf1ab.chunk.js"
   ]
 }
