@@ -67,7 +67,7 @@ class GraphServer extends GraphLoadSave {
 
     build() {
         // TODO
-        Axios.post('http://127.0.0.1:5000/build/demo?fetch=sample&apikey=xyz')
+        Axios.post(`http://127.0.0.1:5000/build/${this.superState.uploadedDirName}?fetch=${this.superState.graphs[this.superState.curGraphIndex].fileName.split('.')[0]}`)
             .then((res) => { // eslint-disable-next-line
                 alert(res.data['message'])
             }).catch((err) => { // eslint-disable-next-line
@@ -78,7 +78,7 @@ class GraphServer extends GraphLoadSave {
 
     debug() {
         // TODO
-        Axios.post('http://127.0.0.1:5000/debug/demo')
+        Axios.post(`http://127.0.0.1:5000/debug/${this.superState.graphs[this.superState.curGraphIndex].fileName.split('.')[0]}`)
             .then((res) => { // eslint-disable-next-line
                 alert(res.data['message'])
             }).catch((err) => { // eslint-disable-next-line
@@ -89,7 +89,7 @@ class GraphServer extends GraphLoadSave {
 
     run() {
         // TODO
-        Axios.post('http://127.0.0.1:5000/run/demo')
+        Axios.post(`http://127.0.0.1:5000/run/${this.superState.graphs[this.superState.curGraphIndex].fileName.split('.')[0]}`)
             .then((res) => { // eslint-disable-next-line
                 alert(res.data['message'])
             }).catch((err) => { // eslint-disable-next-line
@@ -100,7 +100,7 @@ class GraphServer extends GraphLoadSave {
 
     clear() {
         // TODO
-        Axios.post('http://127.0.0.1:5000/clear/demo')
+        Axios.post(`http://127.0.0.1:5000/clear/${this.superState.graphs[this.superState.curGraphIndex].fileName.split('.')[0]}`)
             .then((res) => { // eslint-disable-next-line
                 alert(res.data['message'])
             }).catch((err) => { // eslint-disable-next-line
@@ -111,7 +111,7 @@ class GraphServer extends GraphLoadSave {
 
     stop() {
         // TODO
-        Axios.post('http://127.0.0.1:5000/stop/demo')
+        Axios.post(`http://127.0.0.1:5000/stop/${this.superState.graphs[this.superState.curGraphIndex].fileName.split('.')[0]}`)
             .then((res) => { // eslint-disable-next-line
                 alert(res.data['message'])
             }).catch((err) => { // eslint-disable-next-line
@@ -122,7 +122,7 @@ class GraphServer extends GraphLoadSave {
 
     destroy() {
         // TODO
-        Axios.delete('http://127.0.0.1:5000/destroy/demo')
+        Axios.delete(`http://127.0.0.1:5000/destroy/${this.superState.graphs[this.superState.curGraphIndex].fileName.split('.')[0]}`)
             .then((res) => { // eslint-disable-next-line
                 alert(res.data['message'])
             }).catch((err) => { // eslint-disable-next-line

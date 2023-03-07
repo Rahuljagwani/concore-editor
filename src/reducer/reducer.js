@@ -148,6 +148,10 @@ const reducer = (state, action) => {
         return { ...newState };
     }
 
+    case T.SET_DIR_NAME: {
+        return { ...state, uploadedDirName: action.payload };
+    }
+
     case T.SET_HISTORY_MODAL: {
         return { ...state, viewHistory: action.payload };
     }
