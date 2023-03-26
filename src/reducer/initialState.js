@@ -13,6 +13,7 @@ const initialState = {
     settingsModal: false,
     editDetailsModal: false,
     newGraphModal: false,
+    contributeModal: false,
 
     eleSelected: false,
     drawModeOn: true,
@@ -26,6 +27,7 @@ const initialState = {
     zoomLevel: 100,
     uploadedDirName: null,
     resetEnabled: false,
+
 };
 
 const initialGraphState = {

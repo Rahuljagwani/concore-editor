@@ -149,6 +149,10 @@ const reducer = (state, action) => {
         return { ...newState };
     }
 
+    case T.SET_DIR_NAME: {
+        return { ...state, uploadedDirName: action.payload };
+    }
+
     case T.SET_HISTORY_MODAL: {
         return { ...state, viewHistory: action.payload };
     }
@@ -173,8 +177,11 @@ const reducer = (state, action) => {
     case T.SET_NEW_GRAPH_MODAL: {
         return { ...state, newGraphModal: action.payload };
     }
+    case T.SET_CONTRIBUTE_MODAL: {
+        return { ...state, contributeModal: action.payload };
     case T.CHANGE_RESET: {
         return { ...state, resetEnabled: action.payload };
+
     }
 
     case T.EDIT_TEXTFILE: {

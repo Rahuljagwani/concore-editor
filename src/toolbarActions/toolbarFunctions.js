@@ -171,6 +171,10 @@ const openSettingModal = (state, setState) => {
     setState({ type: T.SET_SETTING_MODAL, payload: true });
 };
 
+const contribute = (state, setState) => {
+    setState({ type: T.SET_CONTRIBUTE_MODAL, payload: true });
+};
+
 const viewHistory = (state, setState) => {
     setState({ type: T.SET_HISTORY_MODAL, payload: true });
 };
@@ -187,5 +191,5 @@ export {
     createNode, editElement, deleteElem, downloadImg, saveAction, saveGraphMLFile,
     createFile, readFile, readTextFile, newProject, clearAll, editDetails, undo, redo,
     openShareModal, openSettingModal, viewHistory, resetAfterClear,
-    toggleServer,
+    toggleServer, contribute,
 };
