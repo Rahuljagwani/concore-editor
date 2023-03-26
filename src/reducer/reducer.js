@@ -193,10 +193,6 @@ const reducer = (state, action) => {
         };
     }
 
-    case T.SET_DIR_NAME: {
-        return { ...state, uploadedDirName: action.payload };
-    }
-
     default:
         return state;
     }
