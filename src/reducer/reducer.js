@@ -179,9 +179,9 @@ const reducer = (state, action) => {
     }
     case T.SET_CONTRIBUTE_MODAL: {
         return { ...state, contributeModal: action.payload };
+    }
     case T.CHANGE_RESET: {
         return { ...state, resetEnabled: action.payload };
-
     }
 
     case T.EDIT_TEXTFILE: {
