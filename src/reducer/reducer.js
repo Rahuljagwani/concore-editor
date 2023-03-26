@@ -179,6 +179,9 @@ const reducer = (state, action) => {
     }
     case T.SET_CONTRIBUTE_MODAL: {
         return { ...state, contributeModal: action.payload };
+    case T.CHANGE_RESET: {
+        return { ...state, resetEnabled: action.payload };
+
     }
 
     case T.EDIT_TEXTFILE: {
@@ -188,6 +191,10 @@ const reducer = (state, action) => {
             fileObj: action.payload.fileObj,
             fileHandle: action.payload.fileHandle,
         };
+    }
+
+    case T.SET_DIR_NAME: {
+        return { ...state, uploadedDirName: action.payload };
     }
 
     default:
