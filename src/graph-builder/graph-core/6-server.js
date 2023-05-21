@@ -1,3 +1,4 @@
+import { toast } from 'react-toastify';
 import Axios from 'axios';
 import { actionType as T } from '../../reducer';
 import GraphLoadSave from './5-load-save';
@@ -46,8 +47,8 @@ class GraphServer extends GraphLoadSave {
     //             this.setGraphML(graphXML);
     //         });
     //     } else {
-    //         // eslint-disable-next-line no-alert
-    //         alert('Not on server');
+    //         // eslint-disable-next-line no-toast.success
+    //         toast.success('Not on server');
     //     }
     // }
 
@@ -60,8 +61,8 @@ class GraphServer extends GraphLoadSave {
 
     //         });
     //     } else {
-    //         // eslint-disable-next-line no-alert
-    //         alert('Not on server');
+    //         // eslint-disable-next-line no-toast.success
+    //         toast.success('Not on server');
     //     }
     // }
 
@@ -69,9 +70,9 @@ class GraphServer extends GraphLoadSave {
         // TODO
         Axios.post(`http://127.0.0.1:5000/build/${this.superState.uploadedDirName}?fetch=${this.superState.graphs[this.superState.curGraphIndex].fileName.split('.')[0]}`)
             .then((res) => { // eslint-disable-next-line
-                alert(res.data['message'])
+                toast.success(res.data['message'])
             }).catch((err) => { // eslint-disable-next-line
-                alert(err);
+                toast.success(err);
             });
         if (this.serverID);
     }
@@ -80,9 +81,9 @@ class GraphServer extends GraphLoadSave {
         // TODO
         Axios.post(`http://127.0.0.1:5000/debug/${this.superState.graphs[this.superState.curGraphIndex].fileName.split('.')[0]}`)
             .then((res) => { // eslint-disable-next-line
-                alert(res.data['message'])
+                toast.success(res.data['message'])
             }).catch((err) => { // eslint-disable-next-line
-                alert(err);
+                toast.success(err);
             });
         if (this.serverID);
     }
@@ -91,9 +92,9 @@ class GraphServer extends GraphLoadSave {
         // TODO
         Axios.post(`http://127.0.0.1:5000/run/${this.superState.graphs[this.superState.curGraphIndex].fileName.split('.')[0]}`)
             .then((res) => { // eslint-disable-next-line
-                alert(res.data['message'])
+                toast.success(res.data['message'])
             }).catch((err) => { // eslint-disable-next-line
-                alert(err);
+                toast.success(err);
             });
         if (this.serverID);
     }
@@ -102,9 +103,9 @@ class GraphServer extends GraphLoadSave {
         // TODO
         Axios.post(`http://127.0.0.1:5000/clear/${this.superState.graphs[this.superState.curGraphIndex].fileName.split('.')[0]}`)
             .then((res) => { // eslint-disable-next-line
-                alert(res.data['message'])
+                toast.success(res.data['message'])
             }).catch((err) => { // eslint-disable-next-line
-                alert(err);
+                toast.success(err);
             });
         if (this.serverID);
     }
@@ -113,9 +114,9 @@ class GraphServer extends GraphLoadSave {
         // TODO
         Axios.post(`http://127.0.0.1:5000/stop/${this.superState.graphs[this.superState.curGraphIndex].fileName.split('.')[0]}`)
             .then((res) => { // eslint-disable-next-line
-                alert(res.data['message'])
+                toast.success(res.data['message'])
             }).catch((err) => { // eslint-disable-next-line
-                alert(err);
+                toast.success(err);
             });
         if (this.serverID);
     }
@@ -124,9 +125,9 @@ class GraphServer extends GraphLoadSave {
         // TODO
         Axios.delete(`http://127.0.0.1:5000/destroy/${this.superState.graphs[this.superState.curGraphIndex].fileName.split('.')[0]}`)
             .then((res) => { // eslint-disable-next-line
-                alert(res.data['message'])
+                toast.success(res.data['message'])
             }).catch((err) => { // eslint-disable-next-line
-                alert(err);
+                toast.success(err);
             });
         if (this.serverID);
     }
