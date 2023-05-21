@@ -10,10 +10,6 @@ import {
 } from 'react-icons/fi';
 
 import {
-    BsArrowRepeat,
-} from 'react-icons/bs';
-
-import {
     createNode, editElement, deleteElem, downloadImg, saveAction, saveGraphMLFile,
     createFile, readFile, clearAll, undo, redo, viewHistory, resetAfterClear,
     toggleServer, contribute,
