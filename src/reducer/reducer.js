@@ -13,6 +13,7 @@ const reducer = (state, action) => {
             modalPayload: {
                 title: 'Create Node',
                 submitText: 'Create Node',
+                type: 'Node',
                 Children: NodeDetails,
                 defaultStyle: NodeStyle,
                 defaultLabel: '',
@@ -41,6 +42,7 @@ const reducer = (state, action) => {
             modalPayload: {
                 title: 'Edit Node',
                 submitText: 'Edit Node',
+                type: 'Node',
                 Children: NodeDetails,
                 defaultStyle: action.style,
                 defaultLabel: action.label,
@@ -130,6 +132,10 @@ const reducer = (state, action) => {
 
     case T.SET_SHARE_MODAL: {
         return { ...state, shareModal: action.payload };
+    }
+
+    case T.SET_FILE_STATE: {
+        return { ...state, fileState: action.payload };
     }
 
     case T.SET_SETTING_MODAL: {

@@ -37,6 +37,7 @@ const app = () => {
             <GraphCompDetails
                 closeModal={() => dispatcher({ type: T.Model_Close })}
                 superState={superState}
+                dispatcher={dispatcher}
             />
             <FileDragDrop dispatcher={dispatcher} />
             <Header superState={superState} dispatcher={dispatcher} />

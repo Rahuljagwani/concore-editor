@@ -112,7 +112,7 @@ const toolbarList = (state, dispatcher) => [
         text: 'Delete',
         icon: FaTrash,
         action: () => deleteElem(state, dispatcher),
-        active: state.eleSelected,
+        active: state.curGraphInstance && state.eleSelected,
         visibility: true,
         hotkey: 'Delete,Backspace,Del,Clear',
     },

@@ -100,6 +100,7 @@ const LocalFileBrowser = ({ superState, dispatcher }) => {
         setFileState([]);
         setFileState(state);
         dispatcher({ type: T.SET_DIR_NAME, payload: state[0].key.split('/')[0] });
+        dispatcher({ type: T.SET_FILE_STATE, payload: state });
     };
 
     const newFeatureFile = async () => {

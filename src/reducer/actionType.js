@@ -34,6 +34,7 @@ const actionType = {
     EDIT_TEXTFILE: 'EDIT_TEXTFILE',
     SET_FILE_HANDLE: 'SET_FILE_HANDLE',
     SET_DIR_NAME: 'SET_DIR_NAME',
+    SET_FILE_STATE: 'SET_FILE_STATE',
 };
 
 export default zealit(actionType);
