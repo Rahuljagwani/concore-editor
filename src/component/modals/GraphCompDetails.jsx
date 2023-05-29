@@ -63,13 +63,15 @@ const ModalComp = ({ closeModal, superState, dispatcher }) => {
     }, [createHelpClicked, helpClicked, element]);
 
     const openFile = () => {
-        const fname = data.label.split(':')[1];
         setElement(null);
-        superState.fileState.forEach((ele) => {
-            if (ele.key.split('/')[1] === fname) {
-                setElement(ele);
-            }
-        });
+        if (superState.fileState !== undefined && data.label !== '') {
+            const fname = data.label.split(':')[1];
+            superState.fileState.forEach((ele) => {
+                if (ele.key.split('/')[1] === fname) {
+                    setElement(ele);
+                }
+            });
+        }
         if (submitText === 'Edit Node') {
             setEditSourceClicked(true);
         } else if (submitText === 'Create Node') {
@@ -78,14 +80,16 @@ const ModalComp = ({ closeModal, superState, dispatcher }) => {
     };
 
     const openDoc = () => {
-        const docname1 = data.label.split(':')[1].split('.')[0].concat('.md');
-        const docname2 = data.label.split(':')[1].split('.')[0].concat('.txt');
         setElement(null);
-        superState.fileState.forEach((ele) => {
-            if (ele.key.split('/')[1] === docname1 || ele.key.split('/')[1] === docname2) {
-                setElement(ele);
-            }
-        });
+        if (superState.fileState !== undefined && data.label !== '') {
+            const docname1 = data.label.split(':')[1].split('.')[0].concat('.md');
+            const docname2 = data.label.split(':')[1].split('.')[0].concat('.txt');
+            superState.fileState.forEach((ele) => {
+                if (ele.key.split('/')[1] === docname1 || ele.key.split('/')[1] === docname2) {
+                    setElement(ele);
+                }
+            });
+        }
         if (submitText === 'Edit Node') {
             setHelpClicked(true);
         } else if (submitText === 'Create Node') {
