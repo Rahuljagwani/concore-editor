@@ -67,7 +67,7 @@ const ModalComp = ({ closeModal, superState, dispatcher }) => {
         if (superState.fileState !== undefined && data.label !== '') {
             const fname = data.label.split(':')[1];
             superState.fileState.forEach((ele) => {
-                if (ele.key.split('/')[1] === fname) {
+                if (ele.key.split('/')[1] === fname || ele.key.split('/')[2] === fname) {
                     setElement(ele);
                 }
             });

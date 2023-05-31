@@ -101,6 +101,7 @@ const NodeDetails = ({
                             type="text"
                             label="Node Label file"
                             placeholder="Select file"
+                            value={data.label.split(':')[1]}
                             onChange={(e) => {
                                 setLabelFile(e.target.value.split('/').pop());
                                 if (labelName) {

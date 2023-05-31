@@ -67,7 +67,7 @@ const LocalFileBrowser = ({ superState, dispatcher }) => {
                     modified: fileData.lastModified,
                     size: fileData.size,
                     fileObj: fileData,
-                    fileHandle: value,
+                    fileHandle: valueSubDir,
                 }]);
             } else if (valueSubDir.kind === 'directory') {
                 topLevel = `${topKey}/${value.name}`;
