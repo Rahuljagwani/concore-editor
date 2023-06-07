@@ -49,6 +49,16 @@ const FileEditModal = ({ superState, dispatcher }) => {
         const stream = await handle.createWritable();
         await stream.write(codeStuff);
         await stream.close();
+        const fileData = await handle.getFile();
+        let fS = superState.fileState;
+        fS = fS.concat([{
+            key: `${superState.uploadedDirName}/${handle.name}`,
+            modified: fileData.lastModified,
+            size: fileData.size,
+            fileObj: fileData,
+            fileHandle: handle,
+        }]);
+        dispatcher({ type: T.SET_FILE_STATE, payload: fS });
         // dispatcher({ type: T.EDIT_TEXTFILE, payload: { show: false } });
     }
 

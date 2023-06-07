@@ -26,6 +26,7 @@ const initialState = {
     zoomLevel: 100,
     uploadedDirName: null,
     resetEnabled: false,
+    fileState: [],
 };
 
 const initialGraphState = {

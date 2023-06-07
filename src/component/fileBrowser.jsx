@@ -30,6 +30,10 @@ const LocalFileBrowser = ({ superState, dispatcher }) => {
         window.localStorage.setItem('fileList', JSON.stringify(fileState));
     }, [fileState]);
 
+    useEffect(() => {
+        setFileState(superState.fileState);
+    }, [superState.fileState]);
+
     const handleSelectFile = (data) => {
         const fileExtensions = ['jpeg', 'jpg', 'png', 'exe'];
         if (fileExtensions.includes(data.fileObj.name.split('.').pop())) {
