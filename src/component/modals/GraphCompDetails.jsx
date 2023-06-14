@@ -101,7 +101,7 @@ const ModalComp = ({ closeModal, superState, dispatcher }) => {
         <ParentModal closeModal={closeModal} ModelOpen={ModelOpen} title={title}>
             <form onSubmit={submit}>
                 <div className="modal-content-body">
-                    <Children data={data} setData={setData} labelAllowed={labelAllowed} />
+                    <Children data={data} setData={setData} labelAllowed={labelAllowed} state={superState} />
                     {errorMessage ? <div className="err">{errorMessage}</div> : <></>}
                 </div>
                 <div className="modal-footer">

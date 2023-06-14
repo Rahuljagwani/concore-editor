@@ -115,7 +115,10 @@ const FileEditModal = ({ superState, dispatcher }) => {
                             <button type="submit" className="btn btn-primary" onClick={submit}>Save</button>
                         )}
                     {dirButton && (
-                        <button type="submit" className="btn btn-primary" onClick={saveAsSubmit}>Save As</button>
+                        <button type="submit" className="btn btn-primary" onClick={saveAsSubmit}>
+                            Save
+                            {fileName ? ' As' : ''}
+                        </button>
                     )}
                     {!dirButton && (
                         <button type="submit" className="btn btn-primary" onClick={saveSubmit}>Save As</button>
