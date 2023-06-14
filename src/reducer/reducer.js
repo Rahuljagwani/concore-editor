@@ -142,6 +142,14 @@ const reducer = (state, action) => {
         return { ...state, settingsModal: action.payload };
     }
 
+    case T.SET_MARKDOWN_MODAL: {
+        return { ...state, markDownModal: action.payload };
+    }
+
+    case T.SET_INPUT_FILE: {
+        return { ...state, inputFile: action.payload };
+    }
+
     case T.SET_FILE_REF: {
         return { ...state, fileRef: action.payload };
     }

@@ -13,7 +13,7 @@ const initialState = {
     settingsModal: false,
     editDetailsModal: false,
     newGraphModal: false,
-
+    markDownModal: false,
     eleSelected: false,
     drawModeOn: true,
     undoEnabled: false,
@@ -27,6 +27,7 @@ const initialState = {
     uploadedDirName: null,
     resetEnabled: false,
     fileState: [],
+    inputFile: '',
 };
 
 const initialGraphState = {

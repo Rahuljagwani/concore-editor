@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import './graph-comp-details.css';
 import ParentModal from './ParentModal';
 import { readTextFile, createFile } from '../../toolbarActions/toolbarFunctions';
+import { actionType as T } from '../../reducer';
 
 const ModalComp = ({ closeModal, superState, dispatcher }) => {
     const [data, setData] = useState({});
@@ -10,7 +11,6 @@ const ModalComp = ({ closeModal, superState, dispatcher }) => {
     const [element, setElement] = useState(null);
     const [editSourceClicked, setEditSourceClicked] = useState(false);
     const [createSourceClicked, setCreateSourceClicked] = useState(false);
-    const [helpClicked, setHelpClicked] = useState(false);
     const [createHelpClicked, setCreateHelpClicked] = useState(false);
     const { modalPayload, ModelOpen } = superState;
     const {
@@ -47,20 +47,14 @@ const ModalComp = ({ closeModal, superState, dispatcher }) => {
         }
         setEditSourceClicked(false);
         setCreateSourceClicked(false);
-    }, [createSourceClicked, editSourceClicked, element]);
+    }, [createSourceClicked, editSourceClicked]);
 
     useEffect(() => {
         if (createHelpClicked) {
             createFile(superState, dispatcher);
         }
-        if (helpClicked && element === null) {
-            toast.error('Respective doc is not present in same directory');
-        } else if (element !== null) {
-            readTextFile(superState, dispatcher, element.fileObj, element.fileHandle);
-        }
-        setHelpClicked(false);
         setCreateHelpClicked(false);
-    }, [createHelpClicked, helpClicked, element]);
+    }, [createHelpClicked]);
 
     const openFile = () => {
         setElement(null);
@@ -90,10 +84,27 @@ const ModalComp = ({ closeModal, superState, dispatcher }) => {
                 }
             });
         }
-        if (submitText === 'Edit Node') {
-            setHelpClicked(true);
-        } else if (submitText === 'Create Node') {
-            setCreateHelpClicked(true);
+        setCreateHelpClicked(true);
+    };
+
+    const openMarkDownDoc = async () => {
+        dispatcher({ type: T.SET_MARKDOWN_MODAL, payload: true });
+        setElement(null);
+        if (superState.fileState !== undefined && data.label !== '') {
+            const docname1 = data.label.split(':')[1].split('.')[0].concat('.md');
+            const matchingElement = superState.fileState.find((ele) => ele.key.split('/')[1] === docname1);
+            if (matchingElement) {
+                const fr = new FileReader();
+                fr.onload = (x) => {
+                    dispatcher({ type: T.SET_INPUT_FILE, payload: x.target.result });
+                };
+                if (matchingElement.fileHandle) {
+                    fr.readAsText(await matchingElement.fileHandle.getFile());
+                } else if (matchingElement.fileObj) {
+                    fr.readAsText(matchingElement.fileObj);
+                }
+                setElement(matchingElement);
+            }
         }
     };
 
@@ -115,13 +126,24 @@ const ModalComp = ({ closeModal, superState, dispatcher }) => {
                             >
                                 { submitText === 'Edit Node' ? 'Edit Source' : 'Create Source' }
                             </button>
-                            <button
-                                className="btn btn-primary"
-                                type="button"
-                                onClick={openDoc}
-                            >
-                                { submitText === 'Edit Node' ? 'Help' : 'Create Help' }
-                            </button>
+                            { title === 'Edit Node'
+                                ? (
+                                    <button
+                                        className="btn btn-primary"
+                                        type="button"
+                                        onClick={openMarkDownDoc}
+                                    >
+                                        Help
+                                    </button>
+                                ) : (
+                                    <button
+                                        className="btn btn-primary"
+                                        type="button"
+                                        onClick={openDoc}
+                                    >
+                                        Create Help
+                                    </button>
+                                )}
                         </>
                     ) : '' }
                 </div>
