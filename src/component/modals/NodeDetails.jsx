@@ -124,18 +124,25 @@ const NodeDetails = ({
                             placeholder="Select file"
                             value={data.label.split(':')[1]}
                             onChange={(e) => {
-                                setLabelFile(e.target.value.split('/').pop());
-                                setLabelFile(e.target.value.split(' :')[0]);
+                                setLabelFile(e.target.value.split('/').pop().split('                      : ')[0]);
                                 if (labelName) {
                                     let lname = labelName;
                                     if (labelName.slice(-1) !== ':') {
                                         setLabelName(`${labelName}:`);
                                         lname += ':';
                                     }
-                                    // eslint-disable-next-line max-len
-                                    setData({ ...data, label: lname + e.target.value.split('/').pop().split(' :')[0] });
-                                    // eslint-disable-next-line max-len
-                                } else setData({ ...data, label: `:${e.target.value.split('/').pop().split(' :')[0]}` });
+                                    setData({
+                                        ...data,
+                                        // eslint-disable-next-line max-len
+                                        label: lname + e.target.value.split('/').pop().split('                      : ')[0],
+                                    });
+                                } else {
+                                    setData({
+                                        ...data,
+                                        // eslint-disable-next-line max-len
+                                        label: `:${e.target.value.split('/').pop().split('                      : ')[0]}`,
+                                    });
+                                }
                             }}
                             list="files"
                         />
