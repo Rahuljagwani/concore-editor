@@ -96,7 +96,8 @@ const ModalComp = ({ closeModal, superState, dispatcher }) => {
             if (matchingElement) {
                 const fr = new FileReader();
                 fr.onload = (x) => {
-                    dispatcher({ type: T.SET_INPUT_FILE, payload: x.target.result });
+                    // eslint-disable-next-line max-len
+                    dispatcher({ type: T.SET_INPUT_FILE, payload: { content: x.target.result, fname: matchingElement.key.split('/')[1] } });
                 };
                 if (matchingElement.fileHandle) {
                     fr.readAsText(await matchingElement.fileHandle.getFile());

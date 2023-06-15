@@ -134,6 +134,10 @@ const reducer = (state, action) => {
         return { ...state, shareModal: action.payload };
     }
 
+    case T.SET_OPTIONS_MODAL: {
+        return { ...state, optionsModal: action.payload };
+    }
+
     case T.SET_FILE_STATE: {
         return { ...state, fileState: action.payload };
     }
@@ -147,7 +151,7 @@ const reducer = (state, action) => {
     }
 
     case T.SET_INPUT_FILE: {
-        return { ...state, inputFile: action.payload };
+        return { ...state, inputFile: action.payload.content, inputFileName: action.payload.fname };
     }
 
     case T.SET_FILE_REF: {

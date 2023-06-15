@@ -170,8 +170,16 @@ const NodeDetails = ({
                                                 }
                                                 indexOfFile.push(indexOfFile[indexOfFile.length - 1] + 1);
                                                 index = indexOfFile[indexOfFile.length - 1] + 1;
-                                                // eslint-disable-next-line jsx-a11y/control-has-associated-label
-                                                return <option value={list} key={index} />;
+                                                /* eslint-disable */
+                                                return (
+                                                    <>
+                                                        <label htmlFor="dropdown">
+                                                            Hi
+                                                            <option value={list} key={index} />
+                                                        </label>
+                                                    </>
+                                                );
+                                                /* eslint-enable */
                                             }
                                             return null;
                                         })
