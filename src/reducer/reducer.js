@@ -158,6 +158,16 @@ const reducer = (state, action) => {
         return { ...state, fileRef: action.payload };
     }
 
+    case T.SET_OPTIONS: {
+        return {
+            ...state,
+            dockerCheck: action.payload.docker,
+            unlockCheck: action.payload.unlock,
+            params: action.payload.param,
+            maxTime: action.payload.maxT,
+        };
+    }
+
     case T.SET_FILE_HANDLE: {
         const newState = { ...state };
         newState.graphs = newState.graphs.map((g, index) => (

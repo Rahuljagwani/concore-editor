@@ -32,7 +32,7 @@ const NodeDetails = ({
                 mdmap = mdCont;
                 const fr = new FileReader();
                 fr.onload = (x) => {
-                    const strCont = '                      : ';
+                    const strCont = '   DESC: ';
                     mdmap.set(ele, strCont.concat(x.target.result.slice(0, 50).replace('#', '')));
                     setMdCont(mdmap);
                 };
@@ -124,7 +124,7 @@ const NodeDetails = ({
                             placeholder="Select file"
                             value={data.label.split(':')[1]}
                             onChange={(e) => {
-                                setLabelFile(e.target.value.split('/').pop().split('                      : ')[0]);
+                                setLabelFile(e.target.value.split('/').pop().split('   DESC: ')[0]);
                                 if (labelName) {
                                     let lname = labelName;
                                     if (labelName.slice(-1) !== ':') {
@@ -134,13 +134,13 @@ const NodeDetails = ({
                                     setData({
                                         ...data,
                                         // eslint-disable-next-line max-len
-                                        label: lname + e.target.value.split('/').pop().split('                      : ')[0],
+                                        label: lname + e.target.value.split('/').pop().split('   DESC: ')[0],
                                     });
                                 } else {
                                     setData({
                                         ...data,
                                         // eslint-disable-next-line max-len
-                                        label: `:${e.target.value.split('/').pop().split('                      : ')[0]}`,
+                                        label: `:${e.target.value.split('/').pop().split('   DESC: ')[0]}`,
                                     });
                                 }
                             }}
@@ -174,7 +174,6 @@ const NodeDetails = ({
                                                 return (
                                                     <>
                                                         <label htmlFor="dropdown">
-                                                            Hi
                                                             <option value={list} key={index} />
                                                         </label>
                                                     </>

@@ -38,6 +38,7 @@ const actionType = {
     SET_DIR_NAME: 'SET_DIR_NAME',
     SET_FILE_STATE: 'SET_FILE_STATE',
     SET_INPUT_FILE: 'SET_INPUT_FILE',
+    SET_OPTIONS: 'SET_OPTIONS',
 };
 
 export default zealit(actionType);

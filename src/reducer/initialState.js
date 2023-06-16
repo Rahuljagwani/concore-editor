@@ -29,6 +29,10 @@ const initialState = {
     resetEnabled: false,
     fileState: [],
     inputFile: '',
+    params: '',
+    maxTime: '',
+    dockerCheck: false,
+    unlockCheck: false,
 };
 
 const initialGraphState = {

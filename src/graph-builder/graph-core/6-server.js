@@ -101,9 +101,15 @@ class GraphServer extends GraphLoadSave {
 
     clear() {
         // TODO
-        Axios.post(`http://127.0.0.1:5000/clear/${this.superState.graphs[this.superState.curGraphIndex].fileName.split('.')[0]}`)
+        Axios.post(`http://127.0.0.1:5000/clear/${this.superState.graphs[this.superState.curGraphIndex].fileName.split('.')[0]}
+        ?unlock=${this.superState.unlockCheck}&docker=${this.superState.dockerCheck}&maxtime=${this.superState.maxTime}&
+        params=${this.superState.params}&`)
             .then((res) => { // eslint-disable-next-line
-                toast.success(res.data['message'])
+                toast.success(res.data['message']);
+                // console.log(this.superState.dockerCheck);
+                // console.log(this.superState.unlockCheck);
+                // console.log(this.superState.maxTime);
+                // console.log(this.superState.params);
             }).catch((err) => { // eslint-disable-next-line
                 toast.success(err);
             });
