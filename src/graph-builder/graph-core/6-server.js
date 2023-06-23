@@ -68,7 +68,7 @@ class GraphServer extends GraphLoadSave {
 
     build() {
         // TODO
-        Axios.post(`http://127.0.0.1:5000/build/${this.superState.uploadedDirName}?fetch=${this.superState.graphs[this.superState.curGraphIndex].fileName.split('.')[0]}`)
+        Axios.post(`http://127.0.0.1:5000/build/${this.superState.uploadedDirName}?fetch=${this.superState.graphs[this.superState.curGraphIndex].fileName.split('.')[0]}&unlock=${this.superState.unlockCheck}&docker=${this.superState.dockerCheck}&maxtime=${this.superState.maxTime}&params=${this.superState.params}`)
             .then((res) => { // eslint-disable-next-line
                 toast.success(res.data['message'])
             }).catch((err) => { // eslint-disable-next-line
@@ -102,8 +102,7 @@ class GraphServer extends GraphLoadSave {
     clear() {
         // TODO
         Axios.post(`http://127.0.0.1:5000/clear/${this.superState.graphs[this.superState.curGraphIndex].fileName.split('.')[0]}
-        ?unlock=${this.superState.unlockCheck}&docker=${this.superState.dockerCheck}&maxtime=${this.superState.maxTime}&
-        params=${this.superState.params}&`)
+        ?unlock=${this.superState.unlockCheck}&maxtime=${this.superState.maxTime}&params=${this.superState.params}`)
             .then((res) => { // eslint-disable-next-line
                 toast.success(res.data['message']);
                 // console.log(this.superState.dockerCheck);

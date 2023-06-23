@@ -1,7 +1,7 @@
 /* eslint-disable no-alert */
 import {
     FaSave, FaUndo, FaRedo, FaTrash, FaFileImport, FaPlus, FaDownload, FaEdit, FaRegTimesCircle, FaHistory,
-    FaHammer, FaBug, FaBomb, FaToggleOn, FaThermometerEmpty, FaTrashRestore, FaCogs,
+    FaHammer, FaBug, FaBomb, FaToggleOn, FaThermometerEmpty, FaTrashRestore, FaCogs, FaPencilAlt,
 } from 'react-icons/fa';
 
 import {
@@ -30,7 +30,7 @@ const toolbarList = (state, dispatcher) => [
     {
         type: 'action',
         text: 'Create',
-        icon: FaFileImport,
+        icon: FaPencilAlt,
         action: createFile,
         active: true,
         visibility: true,
