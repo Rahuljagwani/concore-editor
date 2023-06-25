@@ -39,6 +39,7 @@ const actionType = {
     SET_FILE_STATE: 'SET_FILE_STATE',
     SET_INPUT_FILE: 'SET_INPUT_FILE',
     SET_OPTIONS: 'SET_OPTIONS',
+    SET_LOADER: 'SET_LOADER',
 };
 
 export default zealit(actionType);

@@ -181,6 +181,10 @@ const reducer = (state, action) => {
         return { ...state, viewHistory: action.payload };
     }
 
+    case T.SET_LOADER: {
+        return { ...state, loader: action.payload };
+    }
+
     case T.SET_AUTHOR: {
         const newState = { ...state };
         newState.graphs = newState.graphs.map((g) => (

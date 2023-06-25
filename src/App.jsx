@@ -16,6 +16,7 @@ import LocalFileBrowser from './component/fileBrowser';
 import FileEditModal from './component/modals/FileEdit';
 import MarkDown from './component/modals/markDown';
 import OptionsModal from './component/modals/OptionsModal';
+import Loader from './component/modals/Loader';
 
 const app = () => {
     const [superState, dispatcher] = useReducer(reducer, initialState);
@@ -37,6 +38,7 @@ const app = () => {
             <HistoryModal superState={superState} dispatcher={dispatcher} />
             <FileEditModal superState={superState} dispatcher={dispatcher} />
             <OptionsModal superState={superState} dispatcher={dispatcher} />
+            <Loader superState={superState} />
             <GraphCompDetails
                 closeModal={() => dispatcher({ type: T.Model_Close })}
                 superState={superState}
