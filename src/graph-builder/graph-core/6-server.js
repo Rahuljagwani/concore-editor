@@ -69,7 +69,7 @@ class GraphServer extends GraphLoadSave {
     build() {
         // TODO
         this.dispatcher({ type: T.SET_LOADER, payload: true });
-        Axios.post(`http://127.0.0.1:5000/build/${this.superState.uploadedDirName}?fetch=${this.superState.graphs[this.superState.curGraphIndex].fileName.split('.')[0]}&unlock=${this.superState.unlockCheck}&docker=${this.superState.dockerCheck}&maxtime=${this.superState.maxTime}&params=${this.superState.params}`)
+        Axios.post(`http://127.0.0.1:5000/build/${this.superState.uploadedDirName}?fetch=${this.superState.graphs[this.superState.curGraphIndex].fileName.split('.')[0]}&unlock=${this.superState.unlockCheck}&docker=${this.superState.dockerCheck}&maxtime=${this.superState.maxTime}&params=${this.superState.params}&octave=${this.superState.octave}`)
             .then((res) => { // eslint-disable-next-line
                 toast.success(res.data['message'])
                 this.dispatcher({ type: T.SET_LOADER, payload: false });

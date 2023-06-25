@@ -6,6 +6,7 @@ import './optionsModal.css';
 const OptionsModal = ({ superState, dispatcher }) => {
     const [unlock, setUnlock] = useState(false);
     const [docker, setDocker] = useState(false);
+    const [octave, setOctave] = useState(false);
     const [param, setParam] = useState('');
     const [maxT, setmaxT] = useState('');
     const close = () => {
@@ -18,6 +19,7 @@ const OptionsModal = ({ superState, dispatcher }) => {
                     docker,
                     maxT,
                     param,
+                    octave,
                 },
             },
         );
@@ -26,7 +28,9 @@ const OptionsModal = ({ superState, dispatcher }) => {
     const handleDockerChange = () => {
         setDocker(!docker);
     };
-
+    const handleOctaveChange = () => {
+        setOctave(!octave);
+    };
     const handleUnlockChange = () => {
         setUnlock(!unlock);
     };
@@ -44,6 +48,10 @@ const OptionsModal = ({ superState, dispatcher }) => {
                 <label htmlFor="Docker">
                     Docker
                     <input type="checkbox" checked={docker} onChange={handleDockerChange} />
+                </label>
+                <label htmlFor="Octave" className="main-div-comp">
+                    Octave
+                    <input type="checkbox" checked={octave} onChange={handleOctaveChange} />
                 </label>
                 <label htmlFor="Unlock" className="main-div-comp">
                     Unlock

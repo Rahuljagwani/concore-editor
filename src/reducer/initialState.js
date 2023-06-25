@@ -34,6 +34,7 @@ const initialState = {
     dockerCheck: false,
     unlockCheck: false,
     loader: false,
+    octave: false,
 };
 
 const initialGraphState = {

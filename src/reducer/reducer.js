@@ -165,6 +165,7 @@ const reducer = (state, action) => {
             unlockCheck: action.payload.unlock,
             params: action.payload.param,
             maxTime: action.payload.maxT,
+            octave: action.payload.octave,
         };
     }
 
