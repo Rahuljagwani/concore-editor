@@ -13,6 +13,7 @@ const reducer = (state, action) => {
             modalPayload: {
                 title: 'Create Node',
                 submitText: 'Create Node',
+                type: 'Node',
                 Children: NodeDetails,
                 defaultStyle: NodeStyle,
                 defaultLabel: '',
@@ -41,6 +42,7 @@ const reducer = (state, action) => {
             modalPayload: {
                 title: 'Edit Node',
                 submitText: 'Edit Node',
+                type: 'Node',
                 Children: NodeDetails,
                 defaultStyle: action.style,
                 defaultLabel: action.label,
@@ -132,12 +134,39 @@ const reducer = (state, action) => {
         return { ...state, shareModal: action.payload };
     }
 
+    case T.SET_OPTIONS_MODAL: {
+        return { ...state, optionsModal: action.payload };
+    }
+
+    case T.SET_FILE_STATE: {
+        return { ...state, fileState: action.payload };
+    }
+
     case T.SET_SETTING_MODAL: {
         return { ...state, settingsModal: action.payload };
     }
 
+    case T.SET_MARKDOWN_MODAL: {
+        return { ...state, markDownModal: action.payload };
+    }
+
+    case T.SET_INPUT_FILE: {
+        return { ...state, inputFile: action.payload.content, inputFileName: action.payload.fname };
+    }
+
     case T.SET_FILE_REF: {
         return { ...state, fileRef: action.payload };
+    }
+
+    case T.SET_OPTIONS: {
+        return {
+            ...state,
+            dockerCheck: action.payload.docker,
+            unlockCheck: action.payload.unlock,
+            params: action.payload.param,
+            maxTime: action.payload.maxT,
+            octave: action.payload.octave,
+        };
     }
 
     case T.SET_FILE_HANDLE: {
@@ -151,6 +180,10 @@ const reducer = (state, action) => {
 
     case T.SET_HISTORY_MODAL: {
         return { ...state, viewHistory: action.payload };
+    }
+
+    case T.SET_LOADER: {
+        return { ...state, loader: action.payload };
     }
 
     case T.SET_AUTHOR: {

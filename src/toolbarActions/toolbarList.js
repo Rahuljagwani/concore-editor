@@ -1,7 +1,7 @@
 /* eslint-disable no-alert */
 import {
     FaSave, FaUndo, FaRedo, FaTrash, FaFileImport, FaPlus, FaDownload, FaEdit, FaRegTimesCircle, FaHistory,
-    FaHammer, FaBug, FaBomb, FaToggleOn, FaThermometerEmpty, FaTrashRestore,
+    FaHammer, FaBug, FaBomb, FaToggleOn, FaThermometerEmpty, FaTrashRestore, FaCogs, FaPencilAlt,
 } from 'react-icons/fa';
 
 import {
@@ -12,7 +12,7 @@ import {
 import {
     createNode, editElement, deleteElem, downloadImg, saveAction, saveGraphMLFile,
     createFile, readFile, clearAll, undo, redo, viewHistory, resetAfterClear,
-    toggleServer,
+    toggleServer, optionModalToggle,
     // openSettingModal,
 } from './toolbarFunctions';
 
@@ -30,7 +30,7 @@ const toolbarList = (state, dispatcher) => [
     {
         type: 'action',
         text: 'Create',
-        icon: FaFileImport,
+        icon: FaPencilAlt,
         action: createFile,
         active: true,
         visibility: true,
@@ -112,7 +112,7 @@ const toolbarList = (state, dispatcher) => [
         text: 'Delete',
         icon: FaTrash,
         action: () => deleteElem(state, dispatcher),
-        active: state.eleSelected,
+        active: state.curGraphInstance && state.eleSelected,
         visibility: true,
         hotkey: 'Delete,Backspace,Del,Clear',
     },
@@ -134,6 +134,14 @@ const toolbarList = (state, dispatcher) => [
         action: () => toggleServer(state, dispatcher),
         active: true,
         visibility: true,
+    },
+    {
+        type: 'action',
+        text: 'Options',
+        icon: FaCogs,
+        action: () => optionModalToggle(state, dispatcher),
+        active: state.isWorkflowOnServer,
+        visibility: state.isWorkflowOnServer,
     },
     {
         type: 'action',

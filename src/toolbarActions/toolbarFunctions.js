@@ -130,6 +130,13 @@ const readTextFile = (state, setState, file, fileHandle) => {
     }
 };
 
+const optionModalToggle = (state, setState) => {
+    setState({
+        type: T.SET_OPTIONS_MODAL,
+        payload: true,
+    });
+};
+
 const createFile = (state, setState) => {
     setState({
         type: T.EDIT_TEXTFILE,
@@ -187,5 +194,5 @@ export {
     createNode, editElement, deleteElem, downloadImg, saveAction, saveGraphMLFile,
     createFile, readFile, readTextFile, newProject, clearAll, editDetails, undo, redo,
     openShareModal, openSettingModal, viewHistory, resetAfterClear,
-    toggleServer,
+    toggleServer, optionModalToggle,
 };

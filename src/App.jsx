@@ -14,6 +14,9 @@ import FileDragDrop from './component/File-drag-drop';
 import HistoryModal from './component/modals/History';
 import LocalFileBrowser from './component/fileBrowser';
 import FileEditModal from './component/modals/FileEdit';
+import MarkDown from './component/modals/markDown';
+import OptionsModal from './component/modals/OptionsModal';
+import Loader from './component/modals/Loader';
 
 const app = () => {
     const [superState, dispatcher] = useReducer(reducer, initialState);
@@ -34,10 +37,14 @@ const app = () => {
             <SettingsModal superState={superState} dispatcher={dispatcher} />
             <HistoryModal superState={superState} dispatcher={dispatcher} />
             <FileEditModal superState={superState} dispatcher={dispatcher} />
+            <OptionsModal superState={superState} dispatcher={dispatcher} />
+            <Loader superState={superState} />
             <GraphCompDetails
                 closeModal={() => dispatcher({ type: T.Model_Close })}
                 superState={superState}
+                dispatcher={dispatcher}
             />
+            <MarkDown superState={superState} dispatcher={dispatcher} />
             <FileDragDrop dispatcher={dispatcher} />
             <Header superState={superState} dispatcher={dispatcher} />
             <section className="body" style={{ display: 'flex', overflow: 'hidden' }}>

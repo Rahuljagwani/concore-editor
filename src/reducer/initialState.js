@@ -13,7 +13,8 @@ const initialState = {
     settingsModal: false,
     editDetailsModal: false,
     newGraphModal: false,
-
+    optionsModal: false,
+    markDownModal: false,
     eleSelected: false,
     drawModeOn: true,
     undoEnabled: false,
@@ -26,6 +27,14 @@ const initialState = {
     zoomLevel: 100,
     uploadedDirName: null,
     resetEnabled: false,
+    fileState: [],
+    inputFile: '',
+    params: '',
+    maxTime: '',
+    dockerCheck: false,
+    unlockCheck: false,
+    loader: false,
+    octave: false,
 };
 
 const initialGraphState = {
