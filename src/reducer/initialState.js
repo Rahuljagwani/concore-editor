@@ -20,7 +20,7 @@ const initialState = {
     undoEnabled: false,
     redoEnabled: false,
     graphs: [],
-    curGraphIndex: 0,
+    curGraphIndex: -1,
     viewHistory: false,
     isWorkflowOnServer: false,
     curGraphInstance: null,
@@ -48,6 +48,12 @@ const initialGraphState = {
     id: null,
     fileHandle: null,
     fileName: null,
+    built: true,
+    debugged: false,
+    ran: false,
+    destroyed: false,
+    cleared: false,
+    stopped: false,
 };
 
 export { initialState, initialGraphState };

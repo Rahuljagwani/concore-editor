@@ -132,7 +132,7 @@ const toolbarList = (state, dispatcher) => [
         text: 'Server',
         icon: state.isWorkflowOnServer ? FaToggleOn : FiToggleLeft,
         action: () => toggleServer(state, dispatcher),
-        active: true,
+        active: state.curGraphInstance,
         visibility: true,
     },
     {
@@ -148,7 +148,9 @@ const toolbarList = (state, dispatcher) => [
         text: 'Build',
         icon: FaHammer,
         action: () => state.curGraphInstance && state.curGraphInstance.build(),
-        active: state.isWorkflowOnServer,
+        active: state.curGraphIndex !== -1
+            ? state.isWorkflowOnServer && state.graphs[state.curGraphIndex].built
+            : state.isWorkflowOnServer,
         visibility: state.isWorkflowOnServer,
     },
     {
@@ -156,7 +158,9 @@ const toolbarList = (state, dispatcher) => [
         text: 'Debug',
         icon: FaBug,
         action: () => state.curGraphInstance && state.curGraphInstance.debug(),
-        active: state.isWorkflowOnServer,
+        active: state.curGraphIndex !== -1
+            ? state.isWorkflowOnServer && state.graphs[state.curGraphIndex].debugged
+            : state.isWorkflowOnServer,
         visibility: state.isWorkflowOnServer,
     },
     {
@@ -164,7 +168,9 @@ const toolbarList = (state, dispatcher) => [
         text: 'Run',
         icon: FiPlay,
         action: () => state.curGraphInstance && state.curGraphInstance.run(),
-        active: state.isWorkflowOnServer,
+        active: state.curGraphIndex !== -1
+            ? state.isWorkflowOnServer && state.graphs[state.curGraphIndex].ran
+            : state.isWorkflowOnServer,
         visibility: state.isWorkflowOnServer,
     },
     {
@@ -172,7 +178,9 @@ const toolbarList = (state, dispatcher) => [
         text: 'Clear',
         icon: FaRegTimesCircle,
         action: () => state.curGraphInstance && state.curGraphInstance.clear(),
-        active: state.isWorkflowOnServer,
+        active: state.curGraphIndex !== -1
+            ? state.isWorkflowOnServer && state.graphs[state.curGraphIndex].cleared
+            : state.isWorkflowOnServer,
         visibility: state.isWorkflowOnServer,
     },
     {
@@ -180,7 +188,9 @@ const toolbarList = (state, dispatcher) => [
         text: 'Stop',
         icon: FiStopCircle,
         action: () => state.curGraphInstance && state.curGraphInstance.stop(),
-        active: state.isWorkflowOnServer,
+        active: state.curGraphIndex !== -1
+            ? state.isWorkflowOnServer && state.graphs[state.curGraphIndex].stopped
+            : state.isWorkflowOnServer,
         visibility: state.isWorkflowOnServer,
     },
     {
@@ -188,7 +198,9 @@ const toolbarList = (state, dispatcher) => [
         text: 'Destroy',
         icon: FaBomb,
         action: () => state.curGraphInstance && state.curGraphInstance.destroy(),
-        active: state.isWorkflowOnServer,
+        active: state.curGraphIndex !== -1
+            ? state.isWorkflowOnServer && state.graphs[state.curGraphIndex].destroyed
+            : state.isWorkflowOnServer,
         visibility: state.isWorkflowOnServer,
     },
 
