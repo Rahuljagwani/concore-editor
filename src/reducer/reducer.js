@@ -110,6 +110,9 @@ const reducer = (state, action) => {
     case T.SET_CUR_INSTANCE: {
         return { ...state, curGraphInstance: action.payload };
     }
+    case T.SET_CUR_INDEX: {
+        return { ...state, curGraphIndex: action.payload };
+    }
     case T.CHANGE_TAB: return { ...state, curGraphIndex: action.payload };
 
     case T.NEW_GRAPH: return { ...state, newGraphModal: true };
@@ -221,6 +224,17 @@ const reducer = (state, action) => {
 
     case T.SET_DIR_NAME: {
         return { ...state, uploadedDirName: action.payload };
+    }
+
+    case T.SET_FUNCTIONS: {
+        const newState = { ...state };
+        newState.graphs[state.curGraphIndex].built = action.payload.built;
+        newState.graphs[state.curGraphIndex].debugged = action.payload.debugged;
+        newState.graphs[state.curGraphIndex].ran = action.payload.ran;
+        newState.graphs[state.curGraphIndex].cleared = action.payload.cleared;
+        newState.graphs[state.curGraphIndex].destroyed = action.payload.destroyed;
+        newState.graphs[state.curGraphIndex].stopped = action.payload.stopped;
+        return { ...newState };
     }
 
     default:

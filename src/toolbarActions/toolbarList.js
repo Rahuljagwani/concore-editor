@@ -132,7 +132,7 @@ const toolbarList = (state, dispatcher) => [
         text: 'Server',
         icon: state.isWorkflowOnServer ? FaToggleOn : FiToggleLeft,
         action: () => toggleServer(state, dispatcher),
-        active: true,
+        active: state.curGraphInstance,
         visibility: true,
     },
     {
@@ -141,55 +141,67 @@ const toolbarList = (state, dispatcher) => [
         icon: FaCogs,
         action: () => optionModalToggle(state, dispatcher),
         active: state.isWorkflowOnServer,
-        visibility: state.isWorkflowOnServer,
+        visibility: state.isWorkflowOnServer && state.curGraphInstance,
     },
     {
         type: 'action',
         text: 'Build',
         icon: FaHammer,
         action: () => state.curGraphInstance && state.curGraphInstance.build(),
-        active: state.isWorkflowOnServer,
-        visibility: state.isWorkflowOnServer,
+        active: state.curGraphIndex !== -1
+            ? state.isWorkflowOnServer && state.graphs[state.curGraphIndex].built
+            : state.isWorkflowOnServer,
+        visibility: state.isWorkflowOnServer && state.curGraphInstance,
     },
     {
         type: 'action',
         text: 'Debug',
         icon: FaBug,
         action: () => state.curGraphInstance && state.curGraphInstance.debug(),
-        active: state.isWorkflowOnServer,
-        visibility: state.isWorkflowOnServer,
+        active: state.curGraphIndex !== -1
+            ? state.isWorkflowOnServer && state.graphs[state.curGraphIndex].debugged
+            : state.isWorkflowOnServer,
+        visibility: state.isWorkflowOnServer && state.curGraphInstance,
     },
     {
         type: 'action',
         text: 'Run',
         icon: FiPlay,
         action: () => state.curGraphInstance && state.curGraphInstance.run(),
-        active: state.isWorkflowOnServer,
-        visibility: state.isWorkflowOnServer,
+        active: state.curGraphIndex !== -1
+            ? state.isWorkflowOnServer && state.graphs[state.curGraphIndex].ran
+            : state.isWorkflowOnServer,
+        visibility: state.isWorkflowOnServer && state.curGraphInstance,
     },
     {
         type: 'action',
         text: 'Clear',
         icon: FaRegTimesCircle,
         action: () => state.curGraphInstance && state.curGraphInstance.clear(),
-        active: state.isWorkflowOnServer,
-        visibility: state.isWorkflowOnServer,
+        active: state.curGraphIndex !== -1
+            ? state.isWorkflowOnServer && state.graphs[state.curGraphIndex].cleared
+            : state.isWorkflowOnServer,
+        visibility: state.isWorkflowOnServer && state.curGraphInstance,
     },
     {
         type: 'action',
         text: 'Stop',
         icon: FiStopCircle,
         action: () => state.curGraphInstance && state.curGraphInstance.stop(),
-        active: state.isWorkflowOnServer,
-        visibility: state.isWorkflowOnServer,
+        active: state.curGraphIndex !== -1
+            ? state.isWorkflowOnServer && state.graphs[state.curGraphIndex].stopped
+            : state.isWorkflowOnServer,
+        visibility: state.isWorkflowOnServer && state.curGraphInstance,
     },
     {
         type: 'action',
         text: 'Destroy',
         icon: FaBomb,
         action: () => state.curGraphInstance && state.curGraphInstance.destroy(),
-        active: state.isWorkflowOnServer,
-        visibility: state.isWorkflowOnServer,
+        active: state.curGraphIndex !== -1
+            ? state.isWorkflowOnServer && state.graphs[state.curGraphIndex].destroyed
+            : state.isWorkflowOnServer,
+        visibility: state.isWorkflowOnServer && state.curGraphInstance,
     },
 
     // Not being implemented in version 1
