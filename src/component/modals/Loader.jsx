@@ -20,7 +20,7 @@ const Loader = ({ superState }) => {
             </div>
             <br />
             <br />
-            { superState.dockerCheck && superState.graphs[superState.curGraphIndex].built
+            { superState.curGraphInstance && superState.dockerCheck && superState.graphs[superState.curGraphIndex].built
                 ? <button className="btn loader-btn" onClick={stopDocker} type="button">STOP Docker Build</button>
                 : '' }
         </ParentModal>
