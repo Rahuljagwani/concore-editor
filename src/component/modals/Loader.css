@@ -1,0 +1,14 @@
+.loader-main {
+    display: flex;
+    align-items: center;
+}
+.loader-items {
+    position: relative;
+    margin: 10px 25px;
+}
+.loader-btn {
+    margin-left: 20px;
+    background-color: #1e88e5;
+    color: white;
+    font-weight: 200;
+}
