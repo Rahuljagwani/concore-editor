@@ -33,7 +33,6 @@ const initialState = {
     maxTime: '',
     dockerCheck: false,
     unlockCheck: false,
-    loader: false,
     octave: false,
 };
 
