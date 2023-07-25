@@ -16,6 +16,7 @@ import LocalFileBrowser from './component/fileBrowser';
 import FileEditModal from './component/modals/FileEdit';
 import MarkDown from './component/modals/markDown';
 import OptionsModal from './component/modals/OptionsModal';
+import Logs from './component/Logs';
 
 const app = () => {
     const [superState, dispatcher] = useReducer(reducer, initialState);
@@ -42,6 +43,7 @@ const app = () => {
                 superState={superState}
                 dispatcher={dispatcher}
             />
+            <Logs superState={superState} dispatcher={dispatcher} />
             <MarkDown superState={superState} dispatcher={dispatcher} />
             <FileDragDrop dispatcher={dispatcher} />
             <Header superState={superState} dispatcher={dispatcher} />

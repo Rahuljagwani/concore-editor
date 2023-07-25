@@ -12,7 +12,7 @@ import {
 import {
     createNode, editElement, deleteElem, downloadImg, saveAction, saveGraphMLFile,
     createFile, readFile, clearAll, undo, redo, viewHistory, resetAfterClear,
-    toggleServer, optionModalToggle,
+    toggleServer, optionModalToggle, toggleLogs,
     // openSettingModal,
 } from './toolbarFunctions';
 
@@ -127,6 +127,14 @@ const toolbarList = (state, dispatcher) => [
     },
     { type: 'vsep' },
     // server buttons
+    {
+        type: 'action',
+        text: 'Logs',
+        icon: FaBomb,
+        action: toggleLogs,
+        active: true,
+        visibility: true,
+    },
     {
         type: 'action',
         text: 'Server',

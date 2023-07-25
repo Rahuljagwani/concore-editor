@@ -34,6 +34,8 @@ const initialState = {
     dockerCheck: false,
     unlockCheck: false,
     octave: false,
+    logs: false,
+    logsmessage: '',
 };
 
 const initialGraphState = {

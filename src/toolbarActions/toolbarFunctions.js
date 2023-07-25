@@ -156,6 +156,10 @@ const resetAfterClear = (state) => {
     getGraphFun(state).resetAfterClear();
 };
 
+const toggleLogs = (state, dispatcher) => {
+    dispatcher({ type: T.SET_LOGS, payload: !state.logs });
+};
+
 const editDetails = (state, setState) => {
     setState({
         type: T.SET_EDIT_DETAILS_MODAL,
@@ -193,6 +197,6 @@ const toggleServer = (state, dispatcher) => {
 export {
     createNode, editElement, deleteElem, downloadImg, saveAction, saveGraphMLFile,
     createFile, readFile, readTextFile, newProject, clearAll, editDetails, undo, redo,
-    openShareModal, openSettingModal, viewHistory, resetAfterClear,
+    openShareModal, openSettingModal, viewHistory, resetAfterClear, toggleLogs,
     toggleServer, optionModalToggle,
 };

@@ -208,6 +208,12 @@ const reducer = (state, action) => {
     case T.CHANGE_RESET: {
         return { ...state, resetEnabled: action.payload };
     }
+    case T.SET_LOGS_MESSAGE: {
+        return { ...state, logsmessage: action.payload };
+    }
+    case T.SET_LOGS: {
+        return { ...state, logs: action.payload };
+    }
 
     case T.EDIT_TEXTFILE: {
         return {

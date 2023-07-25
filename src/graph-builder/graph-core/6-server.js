@@ -70,17 +70,19 @@ class GraphServer extends GraphLoadSave {
         // TODO
         const toastId = toast.info('LOADING.......', {
             position: 'bottom-left',
-            autoClose: false, // Disable auto-close
+            autoClose: false,
         });
+        this.dispatcher({ type: T.SET_LOGS, payload: false });
         Axios.post(`http://127.0.0.1:5000/build/${this.superState.uploadedDirName}?fetch=${this.superState.graphs[this.superState.curGraphIndex].fileName.split('.')[0]}&unlock=${this.superState.unlockCheck}&docker=${this.superState.dockerCheck}&maxtime=${this.superState.maxTime}&params=${this.superState.params}&octave=${this.superState.octave}`)
             .then((res) => { // eslint-disable-next-line
-                toast.success(res.data['message'])
+                toast.success(res.data['message']);
                 this.dispatcher({
                     type: T.SET_FUNCTIONS,
                     payload: {
                         built: false, ran: false, debugged: true, cleared: false, stopped: false, destroyed: true,
                     },
                 });
+                this.dispatcher({ type: T.SET_LOGS_MESSAGE, payload: this.superState.logsmessage + res.data.output });
                 toast.dismiss(toastId);
             }).catch((err) => { // eslint-disable-next-line
                 toast.error(err.message);
@@ -93,8 +95,9 @@ class GraphServer extends GraphLoadSave {
         // TODO
         const toastId = toast.info('LOADING.......', {
             position: 'bottom-left',
-            autoClose: false, // Disable auto-close
+            autoClose: false,
         });
+        this.dispatcher({ type: T.SET_LOGS, payload: false });
         Axios.post(`http://127.0.0.1:5000/debug/${this.superState.graphs[this.superState.curGraphIndex].fileName.split('.')[0]}`)
             .then((res) => { // eslint-disable-next-line
                 toast.success(res.data['message'])
@@ -116,8 +119,9 @@ class GraphServer extends GraphLoadSave {
         // TODO
         const toastId = toast.info('LOADING.......', {
             position: 'bottom-left',
-            autoClose: false, // Disable auto-close
+            autoClose: false,
         });
+        this.dispatcher({ type: T.SET_LOGS, payload: false });
         Axios.post(`http://127.0.0.1:5000/run/${this.superState.graphs[this.superState.curGraphIndex].fileName.split('.')[0]}`)
             .then((res) => { // eslint-disable-next-line
                 toast.success(res.data['message'])
@@ -139,8 +143,9 @@ class GraphServer extends GraphLoadSave {
         // TODO
         const toastId = toast.info('LOADING.......', {
             position: 'bottom-left',
-            autoClose: false, // Disable auto-close
+            autoClose: false,
         });
+        this.dispatcher({ type: T.SET_LOGS, payload: false });
         Axios.post(`http://127.0.0.1:5000/clear/${this.superState.graphs[this.superState.curGraphIndex].fileName.split('.')[0]}
         ?unlock=${this.superState.unlockCheck}&maxtime=${this.superState.maxTime}&params=${this.superState.params}`)
             .then((res) => { // eslint-disable-next-line
@@ -163,8 +168,9 @@ class GraphServer extends GraphLoadSave {
         // TODO
         const toastId = toast.info('LOADING.......', {
             position: 'bottom-left',
-            autoClose: false, // Disable auto-close
+            autoClose: false,
         });
+        this.dispatcher({ type: T.SET_LOGS, payload: false });
         Axios.post(`http://127.0.0.1:5000/stop/${this.superState.graphs[this.superState.curGraphIndex].fileName.split('.')[0]}`)
             .then((res) => { // eslint-disable-next-line
                 toast.success(res.data['message'])
@@ -186,8 +192,9 @@ class GraphServer extends GraphLoadSave {
         // TODO
         const toastId = toast.info('LOADING.......', {
             position: 'bottom-left',
-            autoClose: false, // Disable auto-close
+            autoClose: false,
         });
+        this.dispatcher({ type: T.SET_LOGS, payload: false });
         Axios.delete(`http://127.0.0.1:5000/destroy/${this.superState.graphs[this.superState.curGraphIndex].fileName.split('.')[0]}`)
             .then((res) => { // eslint-disable-next-line
                 toast.success(res.data['message'])
