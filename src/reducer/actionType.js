@@ -41,6 +41,8 @@ const actionType = {
     SET_INPUT_FILE: 'SET_INPUT_FILE',
     SET_OPTIONS: 'SET_OPTIONS',
     SET_FUNCTIONS: 'SET_FUNCTIONS',
+    SET_LOGS: 'SET_LOGS',
+    SET_LOGS_MESSAGE: 'SET_LOGS_MESSAGE',
 };
 
 export default zealit(actionType);
