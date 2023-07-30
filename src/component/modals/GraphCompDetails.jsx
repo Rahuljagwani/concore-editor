@@ -109,6 +109,15 @@ const ModalComp = ({ closeModal, superState, dispatcher }) => {
         }
     };
 
+    const createLibrary = () => {
+        const fileName = data.label.split(':')[1];
+        if (fileName === undefined || fileName === '') {
+            toast.error('Enter File Name');
+            return;
+        }
+        superState.curGraphInstance.library(fileName);
+    };
+
     return (
         <ParentModal closeModal={closeModal} ModelOpen={ModelOpen} title={title}>
             <form onSubmit={submit}>
@@ -143,6 +152,17 @@ const ModalComp = ({ closeModal, superState, dispatcher }) => {
                                         onClick={openDoc}
                                     >
                                         Create Help
+                                    </button>
+                                )}
+                            { title === 'Edit Node'
+                                ? ''
+                                : (
+                                    <button
+                                        className="btn btn-primary"
+                                        type="button"
+                                        onClick={createLibrary}
+                                    >
+                                        Create Library
                                     </button>
                                 )}
                         </>

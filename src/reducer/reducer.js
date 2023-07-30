@@ -169,6 +169,7 @@ const reducer = (state, action) => {
             params: action.payload.param,
             maxTime: action.payload.maxT,
             octave: action.payload.octave,
+            library: action.payload.library,
         };
     }
 

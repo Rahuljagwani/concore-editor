@@ -31,6 +31,7 @@ const initialState = {
     inputFile: '',
     params: '',
     maxTime: '',
+    library: '',
     dockerCheck: false,
     unlockCheck: false,
     octave: false,
