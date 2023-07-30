@@ -1,7 +1,7 @@
 /* eslint-disable no-alert */
 import {
     FaSave, FaUndo, FaRedo, FaTrash, FaFileImport, FaPlus, FaDownload, FaEdit, FaRegTimesCircle, FaHistory,
-    FaHammer, FaBug, FaBomb, FaToggleOn, FaThermometerEmpty, FaTrashRestore, FaCogs, FaPencilAlt,
+    FaHammer, FaBug, FaBomb, FaToggleOn, FaThermometerEmpty, FaTrashRestore, FaCogs, FaPencilAlt, FaTerminal,
 } from 'react-icons/fa';
 
 import {
@@ -130,7 +130,7 @@ const toolbarList = (state, dispatcher) => [
     {
         type: 'action',
         text: 'Logs',
-        icon: FaBomb,
+        icon: FaTerminal,
         action: toggleLogs,
         active: true,
         visibility: true,
