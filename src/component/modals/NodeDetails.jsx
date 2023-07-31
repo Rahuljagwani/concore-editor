@@ -158,6 +158,9 @@ const NodeDetails = ({
                                             if (item.key.toString().includes('.md')) {
                                                 return null;
                                             }
+                                            if (item.key.toString().split('/').length > 2) {
+                                                return null;
+                                            }
                                             // eslint-disable-next-line max-len
                                             if ((acceptedTypes.some((substring) => item.key.toString().includes(substring)))) {
                                                 const fileName = item.key.toString().split('.')[0].concat('.md');

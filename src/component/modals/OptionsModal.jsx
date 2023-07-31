@@ -9,6 +9,7 @@ const OptionsModal = ({ superState, dispatcher }) => {
     const [octave, setOctave] = useState(false);
     const [param, setParam] = useState('');
     const [maxT, setmaxT] = useState('');
+    const [library, setLibrary] = useState('');
     const close = () => {
         dispatcher({ type: T.SET_OPTIONS_MODAL, payload: false });
         dispatcher(
@@ -20,6 +21,7 @@ const OptionsModal = ({ superState, dispatcher }) => {
                     maxT,
                     param,
                     octave,
+                    library,
                 },
             },
         );
@@ -40,6 +42,9 @@ const OptionsModal = ({ superState, dispatcher }) => {
     const handleMaxtimeChange = (e) => {
         setmaxT(e.target.value);
     };
+    const handleLibraryChange = (e) => {
+        setLibrary(e.target.value);
+    };
 
     const Options = 'Options';
     return (
@@ -58,7 +63,7 @@ const OptionsModal = ({ superState, dispatcher }) => {
                     <input type="checkbox" checked={unlock} onChange={handleUnlockChange} />
                 </label>
                 <label htmlFor="Maxtime" className="main-div-comp">
-                    Max Time&nbsp;
+                    Max Time:&nbsp;
                     <input
                         type="text"
                         value={maxT}
@@ -70,6 +75,20 @@ const OptionsModal = ({ superState, dispatcher }) => {
                 </label>
                 <br />
                 <br />
+                <span>Library Path:&nbsp;&nbsp;</span>
+                <label htmlFor="librarypath">
+                    <input
+                        size="59"
+                        type="text"
+                        value={library}
+                        placeholder="Enter library path"
+                        onChange={(e) => {
+                            handleLibraryChange(e);
+                        }}
+                    />
+                </label>
+
+                <br />
                 <br />
                 <span>Params:</span>
                 <br />
@@ -77,7 +96,6 @@ const OptionsModal = ({ superState, dispatcher }) => {
                     cols="80"
                     rows="10"
                     value={param}
-                    placeholder="//Write Script"
                     onChange={(e) => {
                         handleParamsChange(e);
                     }}
