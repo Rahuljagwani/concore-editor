@@ -12,7 +12,7 @@ import {
 import {
     createNode, editElement, deleteElem, downloadImg, saveAction, saveGraphMLFile,
     createFile, readFile, clearAll, undo, redo, viewHistory, resetAfterClear,
-    toggleServer, optionModalToggle, toggleLogs,
+    toggleServer, optionModalToggle, toggleLogs, contribute,
     // openSettingModal,
 } from './toolbarFunctions';
 
@@ -255,8 +255,8 @@ const toolbarList = (state, dispatcher) => [
         type: 'action',
         text: 'Contribute',
         icon: FiTriangle,
-        action: () => { window.open('https://github.com/ControlCore-Project/concore', '_blank'); },
-        active: state.curGraphInstance || state.uploadedDirName,
+        action: contribute,
+        active: true,
         visibility: true,
     },
     // {
