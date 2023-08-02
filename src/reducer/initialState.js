@@ -15,6 +15,7 @@ const initialState = {
     newGraphModal: false,
     optionsModal: false,
     markDownModal: false,
+    contributeModal: false,
     eleSelected: false,
     drawModeOn: true,
     undoEnabled: false,

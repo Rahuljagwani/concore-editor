@@ -17,6 +17,7 @@ import FileEditModal from './component/modals/FileEdit';
 import MarkDown from './component/modals/markDown';
 import OptionsModal from './component/modals/OptionsModal';
 import Logs from './component/Logs';
+import ContributeDetails from './component/modals/ContributeDetails';
 
 const app = () => {
     const [superState, dispatcher] = useReducer(reducer, initialState);
@@ -36,6 +37,7 @@ const app = () => {
             <ShareModal superState={superState} dispatcher={dispatcher} />
             <SettingsModal superState={superState} dispatcher={dispatcher} />
             <HistoryModal superState={superState} dispatcher={dispatcher} />
+            <ContributeDetails superState={superState} dispatcher={dispatcher} />
             <FileEditModal superState={superState} dispatcher={dispatcher} />
             <OptionsModal superState={superState} dispatcher={dispatcher} />
             <GraphCompDetails
@@ -56,7 +58,7 @@ const app = () => {
                 </div>
             </section>
             <ReactTooltip place="bottom" type="dark" effect="solid" />
-            <ToastContainer position="top-right" autoClose={5000} pauseOnHover={false} />
+            <ToastContainer position="bottom-left" autoClose={8000} pauseOnHover={false} />
         </div>
     );
 };

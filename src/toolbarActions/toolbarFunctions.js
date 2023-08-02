@@ -152,6 +152,10 @@ const clearAll = (state) => {
     getGraphFun(state).clearAll();
 };
 
+const contribute = (state, setState) => {
+    setState({ type: T.SET_CONTRIBUTE_MODAL, payload: true });
+};
+
 const resetAfterClear = (state) => {
     getGraphFun(state).resetAfterClear();
 };
@@ -198,5 +202,5 @@ export {
     createNode, editElement, deleteElem, downloadImg, saveAction, saveGraphMLFile,
     createFile, readFile, readTextFile, newProject, clearAll, editDetails, undo, redo,
     openShareModal, openSettingModal, viewHistory, resetAfterClear, toggleLogs,
-    toggleServer, optionModalToggle,
+    toggleServer, optionModalToggle, contribute,
 };
